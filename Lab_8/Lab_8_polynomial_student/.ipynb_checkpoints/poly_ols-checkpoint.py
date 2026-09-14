@@ -31,14 +31,3 @@ def polynomial_features(X, degree):
     """Create [1, X, X², ..., X^degree] using X."""
     
     #return X
-    X = np.asarray(X)
- 
-    if X.ndim == 1:
-        X = X.reshape(-1, 1)
-
-    features = [np.ones((X.shape[0], 1))]
-
-    for d in range(1, degree + 1):
-        features.append(X ** d)
-
-    return np.hstack(features)
